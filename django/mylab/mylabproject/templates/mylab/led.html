@@ -1,0 +1,20 @@
+{% extends "mylab/base.html" %}
+
+{% block content %}
+<div class="page-header">
+  <h1>Led</h1>
+  <div class="row">
+     <div class="col-md-6">
+     <select class="form-control input-sm" onchange="window.location.href=this.value">
+       <option value="#">Encender Pin</option>
+       {% for pin in pins %} 
+       <option value="{% url 'led_page' pin=pin bool='si' %}">{{pin}}</option>
+       {% endfor  %}             
+     </select>
+     </div>
+     <div class="col-md-6">
+     <a href="{% url 'led_page' bool='no' %}" class="btn btn-primary">Apagar leds</a>
+     </div>
+  </div>
+</div>
+{% endblock content%}
