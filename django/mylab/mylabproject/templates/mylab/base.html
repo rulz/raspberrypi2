@@ -12,6 +12,7 @@
     padding-top: 50px;
   }
   </style>  
+  {% block custom_css %}{% endblock custom_css %}
 
 </head>
 <body>
@@ -27,8 +28,8 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Led</a></li>
-                <li><a href="#">Ultrasonico</a></li>
+                <li><a href="{% url 'led_page' %}">Led</a></li>
+                <li><a href="{% url 'ultra_page' %}">Ultrasonico</a></li>
               </ul>
             </li>
           </ul>
@@ -42,5 +43,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  {% block custom_js %}{% endblock custom_js %}
 </body>
 </html>

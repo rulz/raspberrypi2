@@ -5,6 +5,10 @@ urlpatterns = [
     url(r'^led/$', views.led_page, name='led_page'),
     url(r'^led/(?P<bool>[-\w]+)/$', views.led_page, name='led_page'),
     url(r'^led/(?P<pin>\d+)/(?P<bool>[-\w]+)/$', views.led_page, name='led_page'),
+    url(r'^ultrasonido/$', views.ultra_page, name='ultra_page'),
+    url(r'^ultrasonido/(?P<bool>[-\w]+)/$', views.ultra_page, name='ultra_page'),
+    url(r'^get-ultra/$', views.get_ultrasonido, name='get_ultrasonido'),
+    
 
 ]
 
