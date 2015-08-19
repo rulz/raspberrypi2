@@ -1,0 +1,13 @@
+{% extends "mylab/base.html" %}
+
+{% block content %}
+<div class="page-header">
+  <h1>Luz</h1>
+  <div class="row">
+     <div class="col-md-6">
+      <a href="{% url 'luz_page' pin=5 bool='si' %}" class="btn btn-primary">Encender sensor Luz</a>
+      <a href="{% url 'luz_page' bool='no' %}" class="btn btn-primary">Apagar sensor Luz</a>
+     </div>
+  </div>
+</div>
+{% endblock content%}

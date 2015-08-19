@@ -82,3 +82,30 @@ class GetUltraSonido(View):
 
 get_ultrasonido = GetUltraSonido.as_view()
 
+class LuzPageView(TemplateView):
+    template_name = "mylab/luz.html"
+
+    def dispatch(self, request, *args, **kwargs):
+        self.bool = kwargs.get('bool', None)
+        self.pin = kwargs.get('pin', None)
+        if self.bool == 'no':
+            self.ultra_turnoff()
+        if self.bool == 'si':
+            self.luz_turnon(self.pin)
+        return super(LuzPageView, self).dispatch(request, *args, **kwargs)
+        
+    def ultra_turnoff(self):
+        GPIO.setwarnings(False)
+        GPIO.cleanup()
+        return HttpResponseRedirect(reverse('luz_page'))
+
+    def luz_turnon(self, pin):
+        GPIO.setmode(GPIO.BCM)
+        if pin:
+            pin = int(pin)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, True)
+        return True
+
+luz_page = LuzPageView.as_view()
+

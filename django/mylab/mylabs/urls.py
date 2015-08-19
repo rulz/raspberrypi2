@@ -8,6 +8,9 @@ urlpatterns = [
     url(r'^ultrasonido/$', views.ultra_page, name='ultra_page'),
     url(r'^ultrasonido/(?P<bool>[-\w]+)/$', views.ultra_page, name='ultra_page'),
     url(r'^get-ultra/$', views.get_ultrasonido, name='get_ultrasonido'),
+    url(r'^luz/$', views.luz_page, name='luz_page'),
+    url(r'^luz/(?P<pin>\d+)/(?P<bool>[-\w]+)/$', views.luz_page, name='luz_page'),
+    url(r'^luz/(?P<bool>[-\w]+)/$', views.luz_page, name='luz_page'),
     
 
 ]
