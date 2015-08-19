@@ -58,6 +58,11 @@ class UltraPageView(TemplateView):
         GPIO.setwarnings(False)
         GPIO.cleanup()
         return HttpResponseRedirect(reverse('ultra_page'))
+
+    #nose si crear un json aca
+    def on_ultrasonido(self):
+        ultrasonido()
+        return
     
     def get_context_data(self, **kwargs):
         context = super(UltraPageView, self).get_context_data(**kwargs)
@@ -78,7 +83,6 @@ class GetUltraSonido(View):
             json.dumps(json_response),
             content_type="application/json;charset=utf-8"
         )
-
 
 get_ultrasonido = GetUltraSonido.as_view()
 
